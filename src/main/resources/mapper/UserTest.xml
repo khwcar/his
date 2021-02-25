@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.toomuchwork.mapper.UserTest">
+
+    <sql id="Base_Column_List">
+        userid,username,password,realname,userType,docTitleId,IsScheduling,departmentid,registLevelid,delMark
+    </sql>
+
+    <select id="selectByUserTest"  parameterType="java.lang.Integer"
+            resultType="com.toomuchwork.entity.User">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where userid = #{userid,jdbcType=INTEGER}
+    </select>
+</mapper>

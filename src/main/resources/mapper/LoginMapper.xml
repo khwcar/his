@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.toomuchwork.mapper.LoginMapper">
+
+    <sql id="login_uname_upassword">
+        username,password
+    </sql>
+
+    <select id="loginByUserName" parameterType="string" resultType="com.toomuchwork.entity.pojo.LoginUser">
+        SELECT
+        <include refid="login_uname_upassword"/>
+        from user where username = #{username}
+    </select>
+</mapper>
